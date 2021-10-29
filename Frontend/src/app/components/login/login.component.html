@@ -1,0 +1,19 @@
+<div id="login">
+    <div [ngSwitch]="getStatus()">
+        <div class="notlog" *ngSwitchCase="0">
+            <form>
+                <input type="login" placeholder="login" #login>
+                <input type="password" placeholder="hasło" #password name="password">
+                <input type="lbutton" value="Zaloguj" (click)="login_(login.value,password.value)">
+                <div id="blank"></div>
+                <input type="rbutton" value="Zarejestruj" (click)="register(login.value,password.value)">
+            </form>
+            <div>{{message}}</div>
+        </div>
+        <div class="log" *ngSwitchCase="1">
+            <div>{{getUser()}}</div>
+            <input type="logout" value="Wyloguj" (click)="logout()">        
+        </div>
+    </div>
+    
+</div>

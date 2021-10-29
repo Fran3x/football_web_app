@@ -1,0 +1,167 @@
+<div class="container">
+    <div class="left">
+        <div id="llist">
+            <leaguelist></leaguelist>
+        </div>
+    </div>
+
+    <div class="center">
+        <div id="options">
+            <div class="option" (click)="select(1)">Live</div>
+            <div class="option" (click)="select(2)">Dziś</div>
+            <div class="option" (click)="select(3)">Jutro</div>
+            <div class="option" (click)="select(4)">Ulubione</div>
+            <div id="date">{{date}}</div>
+        </div>
+        <div [ngSwitch]="selection">
+            <div class="selection" *ngSwitchCase="1">
+                <div *ngFor="let league of live">
+                    <div *ngIf="league.matches[0]!==undefined"><div class="lgname">{{league.name}}</div></div>
+                    <div class="match" *ngFor="let match of league.matches" (click)="selectMatch(match.match_id)">
+                        <li>
+                            <div class="like">
+                                <div [ngSwitch]="getStatus()">
+                                    <div *ngSwitchCase="0">
+                                        <img id="p" [src]="getStar1()">
+                                    </div>
+                                    <div *ngSwitchCase="1">
+                                        <div (click)="changeStar(match.match_id)">
+                                            <img id="p" [src]="star(match.match_id)">
+                                        </div>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mhour" (click)="selectMatch(match.match_id)">{{match.matchHour +":00"}}</div>
+                            <div class="lname" (click)="selectMatch(match.match_id)">{{match.homeTeam}}</div>
+                            <div class="lscore" (click)="selectMatch(match.match_id)">{{scoreView(match.homeScore,match.matchDate)}}</div>
+                            <div class="separator"(click)="selectMatch(match.match_id)">:</div>
+                            <div class="rscore"(click)="selectMatch(match.match_id)">{{scoreView(match.awayScore,match.matchDate)}}</div>
+                            <div class="rname"(click)="selectMatch(match.match_id)">{{match.awayTeam}}</div>
+                        </li>
+                    </div>
+                </div>
+            </div>
+            <div class="selection" *ngSwitchCase="2">
+                <div *ngFor="let league of today">
+                    <div class="lgname" *ngIf="league.matches[0]!==undefined">{{league.name}}</div>
+                    <div class="match" *ngFor="let match of league.matches" (click)="selectMatch(match.match_id)">
+                        <li>
+                            <div class="like">
+                                <div [ngSwitch]="getStatus()">
+                                    <div *ngSwitchCase="0">
+                                        <img id="p" [src]="getStar1()">
+                                    </div>
+                                    <div *ngSwitchCase="1">
+                                        <div (click)="changeStar(match.match_id)">
+                                            <img id="p" [src]="star(match.match_id)">
+                                        </div>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mhour" (click)="selectMatch(match.match_id)">{{match.matchHour +":00"}}</div>
+                            <div class="lname" (click)="selectMatch(match.match_id)">{{match.homeTeam}}</div>
+                            <div class="lscore" (click)="selectMatch(match.match_id)">{{scoreView(match.homeScore,match.matchDate)}}</div>
+                            <div class="separator"(click)="selectMatch(match.match_id)">:</div>
+                            <div class="rscore"(click)="selectMatch(match.match_id)">{{scoreView(match.awayScore,match.matchDate)}}</div>
+                            <div class="rname"(click)="selectMatch(match.match_id)">{{match.awayTeam}}</div>
+                        </li>
+                    </div>
+                </div>
+            </div>
+            <div class="selection" *ngSwitchCase="3">
+                <div *ngFor="let league of tomorrow">
+                    <div class="lgname" *ngIf="league.matches[0]!==undefined" >{{league.name}}</div>
+                    <div class="match" *ngFor="let match of league.matches" (click)="selectMatch(match.match_id)">
+                        <li>
+                            <div class="like">
+                                <div [ngSwitch]="getStatus()">
+                                    <div *ngSwitchCase="0">
+                                        <img id="p" [src]="getStar1()">
+                                    </div>
+                                    <div *ngSwitchCase="1">
+                                        <div (click)="changeStar(match.match_id)">
+                                            <img id="p" [src]="star(match.match_id)">
+                                        </div>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mhour" (click)="selectMatch(match.match_id)">{{match.matchHour +":00"}}</div>
+                            <div class="lname" (click)="selectMatch(match.match_id)">{{match.homeTeam}}</div>
+                            <div class="lscore" (click)="selectMatch(match.match_id)">{{scoreView(match.homeScore,match.matchDate)}}</div>
+                            <div class="separator"(click)="selectMatch(match.match_id)">:</div>
+                            <div class="rscore"(click)="selectMatch(match.match_id)">{{scoreView(match.awayScore,match.matchDate)}}</div>
+                            <div class="rname"(click)="selectMatch(match.match_id)">{{match.awayTeam}}</div>
+                        </li>
+                    </div>
+                </div>
+            </div>
+            <div class="selection" *ngSwitchCase="4">
+                <div *ngIf="getStatus()===1">
+                <div *ngFor="let league of liked">
+                    <div class="lgname" *ngIf="league.matches[0]!==undefined">{{league.name}}</div>
+                    <div class="match" *ngFor="let match of league.matches">
+                        <li>
+                            <div class="like">
+                                <div [ngSwitch]="getStatus()">
+                                    <div *ngSwitchCase="0">
+                                        <img id="p" [src]="getStar1()">
+                                    </div>
+                                    <div *ngSwitchCase="1">
+                                        <div (click)="changeStar(match.match_id)">
+                                            <img id="p" [src]="star(match.match_id)">
+                                        </div>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mhour" (click)="selectMatch(match.match_id)">{{match.matchHour +":00"}}</div>
+                            <div class="lname" (click)="selectMatch(match.match_id)">{{match.homeTeam}}</div>
+                            <div class="lscore" (click)="selectMatch(match.match_id)">{{scoreView(match.homeScore,match.matchDate)}}</div>
+                            <div class="separator"(click)="selectMatch(match.match_id)">:</div>
+                            <div class="rscore"(click)="selectMatch(match.match_id)">{{scoreView(match.awayScore,match.matchDate)}}</div>
+                            <div class="rname"(click)="selectMatch(match.match_id)">{{match.awayTeam}}</div>
+                        </li>
+                    </div>
+                </div>
+                </div>
+            </div>
+            <div class="selection" *ngSwitchCase="5">
+                <div *ngFor="let league of day">
+                    <div class="lgname" *ngIf="league.matches[0]!==undefined">{{league.name}}</div>
+                    <div class="match" *ngFor="let match of league.matches" >
+                        <li>
+                            <div class="like">
+                                <div [ngSwitch]="getStatus()">
+                                    <div *ngSwitchCase="0">
+                                        <img id="p" [src]="getStar1()">
+                                    </div>
+                                    <div *ngSwitchCase="1">
+                                        <div (click)="changeStar(match.match_id)">
+                                            <img id="p" [src]="star(match.match_id)">
+                                        </div>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mhour" (click)="selectMatch(match.match_id)">{{match.matchHour +":00"}}</div>
+                            <div class="lname" (click)="selectMatch(match.match_id)">{{match.homeTeam}}</div>
+                            <div class="lscore" (click)="selectMatch(match.match_id)">{{scoreView(match.homeScore,match.matchDate)}}</div>
+                            <div class="separator"(click)="selectMatch(match.match_id)">:</div>
+                            <div class="rscore"(click)="selectMatch(match.match_id)">{{scoreView(match.awayScore,match.matchDate)}}</div>
+                            <div class="rname"(click)="selectMatch(match.match_id)">{{match.awayTeam}}</div>
+                        </li>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="right">
+        <div id="calendar">
+            <app-calendar (dateEvent)="loadDay($event)"> </app-calendar>
+        </div>
+    </div>
+</div>

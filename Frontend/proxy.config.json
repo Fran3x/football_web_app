@@ -1,0 +1,42 @@
+{
+    "/api/*":{
+        "target": "http://localhost:8080",
+        "secure": false,
+        "loglevel": "debug"
+    },
+	"/match/*":{
+        "target": "http://localhost:8080",
+        "secure": false,
+        "loglevel": "debug"
+    },
+    "/matches/*":{
+        "target": "http://localhost:8080",
+        "secure": false,
+        "loglevel": "debug"
+    },
+    "/goals/*":{
+        "target": "http://localhost:8080",
+        "secure": false,
+        "loglevel": "debug"
+    },
+    "/table/*":{
+        "target": "http://localhost:8080",
+        "secure": false,
+        "loglevel": "debug"
+    },
+    "/players/*":{
+        "target": "http://localhost:8080",
+        "secure": false,
+        "loglevel": "debug"
+    },
+    "/login/*":{
+        "target": "http://localhost:8080",
+        "secure": false,
+        "loglevel": "debug"
+    },
+    "/register/*":{
+        "target": "http://localhost:8080",
+        "secure": false,
+        "loglevel": "debug"
+    }
+}

@@ -1,0 +1,8 @@
+<div id="box">
+    <div id="l">Ligi</div>
+    <div *ngFor="let l of leagueList">
+        <div>
+            <div class="row" (click)="selectLeague(l.name)">{{l.name}}</div>
+        </div>
+    </div>
+</div>

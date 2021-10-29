@@ -1,0 +1,29 @@
+[
+    {"name": "spain",
+    "id": 1, 
+    "matches": [
+        {"matchDate": "18.05.2021",
+            "matchHour": 19,
+            "match_id":1,
+            "homeTeam":"teamC",
+            "homeScore":2,
+            "awayTeam":"teamE",
+            "awayScore":1,
+            "events":[
+                {"minute":23,"name":"n","surname":"b","sname":"Santiago","ssurname":"Gonzalez","aname":"Angel","asurname":"Jimenez","eventType":"goal","team":"teamA"},
+                {"minute":28,"name":"b","surname":"b","sname":"Antonio","ssurname":"Jimenez","aname":"Felipe","asurname":"Lopez","eventType":"goal","team":"teamB"},
+                {"minute":42,"name":"Adrian","surname":"Alvarez","sname":"b","ssurname":"b","aname":"b","asurname":"b","eventType":"yellow_card","team":"teamA"},
+                {"minute":48,"name":"b","surname":"b","sname":"Emmanuel","ssurname":"Hernandez","aname":"Angel","asurname":"Alvarez","eventType":"goal","team":"teamB"}
+                ],
+            "referee":{"referee_id":1,"name":"Mateo","surname":"Hernandez"}},
+        {"match_id":2,"homeTeam": "Barcelona", "homeScore": 5, "awayTeam": "Granada", "awayScore": 1}
+    ]
+    },
+    {"name": "spain2",
+        "id": 2, 
+        "matches": [
+            {"match_id": 3,"homeTeam": "Barcelona", "homeScore": 2, "awayTeam": "Atletico", "awayScore": 1},
+            {"match_id":4,"homeTeam": "Barcelona", "homeScore": 4, "awayTeam": "Granada", "awayScore": 1}
+        ]
+        }
+]

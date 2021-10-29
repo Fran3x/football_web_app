@@ -1,0 +1,71 @@
+<div id="container">
+    <div id="left">
+        
+    </div>
+
+    <div id="center">
+        <div> 
+            <div class="option" (click)="select(1)">Szczegóły meczu</div>
+            <div class="option" (click)="select(2)">Składy</div>
+            <div class="option" (click)="select(3)">Poprzednie starcia</div>
+            
+        </div>
+        <div [ngSwitch]="selection">
+            <div class="selection" *ngSwitchCase="1"> 
+                <div class="minute">{{min}}'</div>
+                <div id="scores"> 
+                    <div class="name">{{match[0].homeTeam}}</div>
+                    <div class="score">{{match[0].homeScore}}</div>
+                    <div class="s">:</div>
+                    <div class="score">{{match[0].awayScore}}</div>
+                    <div class="name">{{match[0].awayTeam}}</div>
+                </div>
+
+                <div *ngFor="let e of match[0].events">
+                    <div id="event">
+                        <div class="leftE" *ngIf="e.team===match[0].homeTeam; else els">
+                            <img id="p" [src]="change_picture(e.eventType)"> <div id="lEvent"> {{displayEvent(e)}}</div> 
+                        </div>
+                        <ng-template #els> <div class="rightE">
+                            <div id="rEvent"> {{displayEvent(e)}}</div> <img id="p" [src]="change_picture(e.eventType)"> 
+                        </div></ng-template>
+                        <div id="clear"></div>
+                    </div>
+                </div>
+                <div>Informacje o spotkaniu</div>
+                <div>Sędzia: {{match[0].referee.name + match[0].referee.surname}}</div>
+            </div>
+            <div class="selection" *ngSwitchCase="2"> 
+                <div>
+                    <div>Składy:</div>
+                    <div id="teams">
+                        <div id="team1">
+                            <div *ngFor="let player of homePlayers">
+                                <div class="p">{{player.name + " " + player.surname}}</div>
+                            </div>
+                        </div>
+                        <div id="blank"></div>
+                        <div id="team2">
+                            <div *ngFor="let player of awayPlayers">
+                                <div class="p">{{player.name + " " + player.surname}}</div>
+                            </div>
+                        </div>
+                    </div>    
+                </div>
+            </div>
+            <div class="selection" *ngSwitchCase="3"> 
+                <div class="selection">
+                    <div>Poprzednie starcia</div>
+                    <div *ngFor="let match of previousMatches">
+                        <div>{{match.homeTeam +" "+ match.homeScore + ":" + match.awayScore + " "+ match.awayTeam}}</div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    <div id="right">
+
+    </div>
+</div>

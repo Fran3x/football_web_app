@@ -1,0 +1,110 @@
+<div class="container">
+    <div class="left">
+        <div id="llist">
+        <leaguelist (leagueReload)="againInit($event)"></leaguelist>
+        </div>
+    </div>
+
+    <div class="center">
+        <div id="league">{{league}}</div>
+        <div id="options">
+            <div class="option" (click)="select(1)">Tabela</div>
+            <div class="option" (click)="select(2)">Wyniki</div>
+            <div class="option" (click)="select(3)">Spotkania</div>
+            <div class="option" (click)="select(4)">Najlepsi strzelcy</div>
+            <div class="option" (click)="select(5)">Najlepsi asystenci</div>
+        </div>
+        <div id="emptyspace"></div>
+        <div [ngSwitch]="selection">
+            <div class="selection" *ngSwitchCase="1">
+                <div class="table">
+                    <div>Tabela</div>
+                    <div>
+                        <div class="c1">#</div>
+                        <div class="c2">{{" Drużyna"}}</div>
+                        <div class="c3">P</div>
+                        <div class="c4">W</div>
+                        <div class="c5">P</div>
+                        <div class="c6">R</div>
+                        <div class="c7">B</div>
+                    </div>
+                    <div *ngFor="let row of table">
+                        <div class="row">
+                            <div class="c1">{{row.nr}}.</div>
+                            <div class="c2">{{" "+row.teamName}}</div>
+                            <div class="c3">{{row.points}}</div>
+                            <div class="c4">{{row.wins}}</div>
+                            <div class="c5">{{row.losses}}</div>
+                            <div class="c6">{{row.draws}}</div>
+                            <div class="c7">{{row.goalsScored}} : {{row.goalsLost}}</div>
+                        </div>
+                    </div>
+                </div>    
+            </div>
+            <div class="selection" *ngSwitchCase="2">
+                <div *ngFor="let g of finishedMatches, index as i">
+                    <div *ngIf="i<view2">
+                        <div>Kolejka {{g.id}}</div>
+                        <div *ngFor="let m of g.matches">
+                            <div>
+                                <div class="mdetails">{{m.homeTeam +" "+ m.homeScore + ":" + m.awayScore + " "+ m.awayTeam}}</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>    
+                <div (click)="view2=view2+2" class="row">Wyświetl więcej</div>
+            </div>
+            <div class="selection" *ngSwitchCase="3">
+                <div *ngFor="let g of nextMatches, index as i">
+                    <div *ngIf="i<view2">
+                        <div>Kolejka {{g.id}}</div>
+                        <div *ngFor="let m of g.matches">
+                            <div>
+                                <div class="mdetails">{{m.homeTeam + "   " + m.awayTeam}}</div>
+                            </div >
+                        </div>
+                    </div>
+                </div>
+                <div (click)="view2=view2+2" class="row">Wyświetl więcej</div>
+            </div>
+            <div class="selection" *ngSwitchCase="4">
+                <div class="table2">
+                    <div class="row">
+                        <div class="pos">#</div>
+                        <div class="player"> Zawodnik</div>
+                        <div class="goals">B</div>
+                    </div>
+                    <div *ngFor="let p of goals; index as i"> 
+                        <div class="row" *ngIf="i<view">    
+                            <div class="pos"> {{i+1}}.</div>
+                            <div class="player"> {{" "+p.name +" "+ p.surname}}</div>
+                            <div class="goals"> {{p.goals}}</div>
+                        </div>
+                    </div>
+                    <div class="row" (click)="view=view+20">Wyświetl więcej</div>
+                </div>
+            </div>
+            <div class="selection" *ngSwitchCase="5">
+                <div class="table2">
+                    <div class="row">
+                        <div class="pos">#</div>
+                        <div class="player">Zawodnik</div>
+                        <div class="goals">A</div>
+                    </div>
+                    <div class="table2" *ngFor="let p of assists; index as i"> 
+                        <div class="row" *ngIf="i<view">    
+                            <div class="pos"> {{i+1}}.</div>
+                            <div class="player"> {{p.name + " "+ p.surname}}</div>
+                            <div class="goals"> {{p.assists}}</div>
+                        </div>
+                    </div>
+                    <div (click)="view=view+20" class="row">Wyświetl więcej</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="right">
+        
+    </div>
+</div>

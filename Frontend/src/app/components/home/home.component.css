@@ -1,0 +1,153 @@
+.match {
+    background-color: var(--maincolor);
+    width: 660px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0px;
+    text-align: center;
+    border-top: 1px solid gray;
+    cursor: pointer;
+    clear: both;
+}
+.lgname{
+    clear: both;
+    text-align: left;
+    padding-left: 20px;
+}
+.match:hover{
+    background-color: var(--color1);
+}
+.league{
+    clear: both;
+}
+
+.option{
+    float:left;
+    text-align: center;
+    width: 80px;
+    border: 1px solid gray;
+    background-color: var(--maincolor);
+    cursor: pointer;
+}
+.option:hover{
+    background-color: var(--color1);
+}
+
+#date{
+    width: auto;
+    text-align: right;
+    margin-right: 10px;
+}
+
+.container{
+    /*background-color: rgb(255, 255, 255);*/
+    width: 1200px;
+    min-height: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: rgb(255, 255, 255);
+    
+}
+
+.left{
+    float:left;
+    width: 270px;
+    min-height: 1000px;
+    background-color: var(--color2);
+}
+
+.right{
+    float:left;
+    width: 270px;
+    background-color: var(--color2);
+    min-height:1000px;
+}
+
+.center{
+    float: left;
+    width: 100%;
+    max-width: 660px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0px;
+    text-align: center;
+}
+.select{
+    color:rgb(18, 175, 13);
+}
+
+#llist{
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    max-width: 250px;
+    width: auto;
+    min-width: 150px;
+}
+
+#calendar{
+    width: auto;
+    max-width: 250px;
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    position: relative;
+}
+.mhour{
+    float:left;
+    min-width: 60px;
+    background-color: var(--maincolor);
+}
+.lname{
+    float: left;
+    min-width: 250px;
+    text-align: right;
+    width: auto;
+    background-color: var(--maincolor);
+}
+.lscore{
+    float: left;
+    min-width: 30px;
+    text-align: right;
+    background-color: var(--maincolor);
+}
+.rscore{
+    float: left;
+    min-width: 30px;
+    text-align: left;
+    background-color: var(--maincolor);
+}
+.rname{
+    float: left;
+    min-width: 250px;
+    text-align: left;
+    width: auto;
+    background-color: var(--maincolor);
+}
+.separator{
+    float: left;
+    min-width: 20px;
+    text-align: center;
+    background-color: var(--maincolor);
+}
+li:hover .lname, li:hover .lscore, li:hover .rname, li:hover .rscore, li:hover .separator, li:hover .mhour{
+    background-color: var(--color1);
+}
+li{
+   list-style-type:none; 
+}
+.matchrow{
+    background-color: var(--maincolor);
+    
+}
+.matchrow:hover{
+    background-color: var(--color1);
+}
+#p{
+    width: 20px;
+    height: 24px;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    float: left;
+}

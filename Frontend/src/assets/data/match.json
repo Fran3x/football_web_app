@@ -1,0 +1,15 @@
+[
+    {"match_id":1,
+    "homeTeam":"teamA",
+    "homeScore":2,
+    "awayTeam":"teamB",
+    "awayScore":1,
+    "events":[
+        {"minute":23,"name":null,"surname":null,"sname":"Santiago","ssurname":"Gonzalez","aname":"Angel","asurname":"Jimenez","eventType":"goal","team":"teamA"},
+        {"minute":28,"name":null,"surname":null,"sname":"Antonio","ssurname":"Jimenez","aname":"Felipe","asurname":"Lopez","eventType":"goal","team":"teamB"},
+        {"minute":42,"name":"Adrian","surname":"Alvarez","sname":null,"ssurname":null,"aname":null,"asurname":null,"eventType":"yellow_card","team":"teamA"},
+        {"minute":48,"name":null,"surname":null,"sname":"Emmanuel","ssurname":"Hernandez","aname":"Angel","asurname":"Alvarez","eventType":"goal","team":"teamB"}
+        ],
+    "referee":{"referee_id":1,"name":"Mateo","surname":"Hernandez"}
+    }
+]
